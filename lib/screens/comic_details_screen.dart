@@ -15,6 +15,7 @@ class ComicDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(comic.imageUrl),
             const SizedBox(height: 16),
@@ -27,7 +28,7 @@ class ComicDetailsScreen extends StatelessWidget {
               'Released: ${comic.dateAdded}',
               style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
             ),
-            // Agrega más detalles aquí según lo que recibas de la API
+            // Agrega más detalles del cómic aquí según lo que recibas de la API
           ],
         ),
       ),
