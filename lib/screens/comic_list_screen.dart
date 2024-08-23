@@ -61,6 +61,35 @@ class ComicListScreen extends StatelessWidget {
           return Container(); // Devolver un widget vacío si el estado no coincide
         },
       ),
+      bottomNavigationBar: Container(
+        height: 80.0, // Ajusta la altura según sea necesario
+        child: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favorites',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          currentIndex: 0,
+          onTap: (index) {
+            // No hay acción al seleccionar un ítem
+          },
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.blueAccent,
+        ),
+      ),
     );
   }
 }
