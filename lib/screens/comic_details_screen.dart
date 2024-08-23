@@ -10,7 +10,24 @@ class ComicDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${comic.name} #${comic.issueNumber}'),
+        backgroundColor: Colors.blueAccent,
+        elevation: 4.0,
+        title: Text(
+          '${comic.name} #${comic.issueNumber}',
+          style: TextStyle(
+            fontSize: 22.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              // Aquí puedes agregar la acción para el botón de búsqueda
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
