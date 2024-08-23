@@ -20,33 +20,58 @@ class ComicDetailsScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              // Aquí puedes agregar la acción para el botón de búsqueda
-            },
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(comic.imageUrl),
-            const SizedBox(height: 16),
-            Text(
-              comic.name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Released: ${comic.dateAdded}',
-              style: const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-            ),
-            // Agrega más detalles del cómic aquí según lo que recibas de la API
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.network(comic.imageUrl),
+              const SizedBox(height: 16),
+              Text(
+                comic.name,
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Released: ${comic.dateAdded}',
+                style:
+                    const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Description: ${comic.description}',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Creators: ${comic.creators.join(', ')}',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Characters: ${comic.characters.join(', ')}',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Teams: ${comic.teams.join(', ')}',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Locations: ${comic.locations.join(', ')}',
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Concepts: ${comic.concepts.join(', ')}',
+                style: const TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );
