@@ -41,34 +41,136 @@ class ComicDetailsScreen extends StatelessWidget {
                     const TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
               ),
               const SizedBox(height: 16),
-              Text(
-                'Description: ${comic.description}',
-                style: const TextStyle(fontSize: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Description: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.description,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Creators: ${comic.creators.join(', ')}',
-                style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Creators: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.creators.join(', '),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Characters: ${comic.characters.join(', ')}',
-                style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Characters: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.characters.join(', '),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Teams: ${comic.teams.join(', ')}',
-                style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Teams: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.teams.join(', '),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Locations: ${comic.locations.join(', ')}',
-                style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Locations: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.locations.join(', '),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                'Concepts: ${comic.concepts.join(', ')}',
-                style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 16),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Concepts: ',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.blue[900], // Color para la etiqueta
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: comic.concepts.join(', '),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Color para el contenido
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
