@@ -17,6 +17,8 @@ class ComicListBloc extends Bloc<ComicListEvent, ComicListState> {
     emit(ComicListLoading());
     try {
       final comics = await comicRepository.fetchComics();
+      // Ordenar la lista de cómics por la fecha de adición en orden descendente
+      comics.sort((a, b) => b.dateAdded.compareTo(a.dateAdded));
       emit(ComicListLoaded(comics: comics));
     } catch (e) {
       print("Error loading comics: $e");
