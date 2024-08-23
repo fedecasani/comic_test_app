@@ -11,7 +11,13 @@ class ComicCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(8.0),
       child: ListTile(
-        leading: Image.network(comic.imageUrl),
+        leading: Image.network(
+          comic.imageUrl,
+          errorBuilder: (context, error, stackTrace) {
+            return Icon(Icons
+                .broken_image); // Mostrar un icono por defecto si la imagen falla
+          },
+        ),
         title: Text('${comic.name} #${comic.issueNumber}'),
         subtitle: Text('Released: ${comic.dateAdded}'),
       ),

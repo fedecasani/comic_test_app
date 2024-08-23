@@ -18,4 +18,10 @@ class ComicListLoaded extends ComicListState {
   List<Object> get props => [comics];
 }
 
-class ComicListError extends ComicListState {}
+class ComicListError extends ComicListState {
+  final String message;
+  const ComicListError({this.message = 'An unknown error occurred'});
+
+  @override
+  List<Object> get props => [message];
+}

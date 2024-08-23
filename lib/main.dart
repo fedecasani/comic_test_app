@@ -9,21 +9,20 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // Agrega el parámetro `key` al constructor
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Comic App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider(
         create: (context) => ComicListBloc(comicRepository: ComicRepository())
           ..add(LoadComics()),
-        child:
-            const ComicListScreen(), // Asegúrate de usar `const` si es posible
+        child: const ComicListScreen(),
       ),
     );
   }

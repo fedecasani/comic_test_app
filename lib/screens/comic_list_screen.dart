@@ -27,7 +27,7 @@ class ComicListScreen extends StatelessWidget {
           } else if (state is ComicListError) {
             return const Center(child: Text('Failed to load comics'));
           }
-          return Container();
+          return Container(); // Devolver un widget vacío si el estado no coincide
         },
       ),
     );

@@ -9,18 +9,18 @@ part 'comic_list_state.dart';
 class ComicListBloc extends Bloc<ComicListEvent, ComicListState> {
   final ComicRepository comicRepository;
 
-  ComicListBloc({required this.comicRepository}) : super(ComicListLoading());
+  ComicListBloc({required this.comicRepository}) : super(ComicListLoading()) {
+    on<LoadComics>(_onLoadComics);
+  }
 
-  // Eliminado @override
-  Stream<ComicListState> mapEventToState(ComicListEvent event) async* {
-    if (event is LoadComics) {
-      yield ComicListLoading();
-      try {
-        final comics = await comicRepository.fetchComics();
-        yield ComicListLoaded(comics: comics);
-      } catch (_) {
-        yield ComicListError();
-      }
+  void _onLoadComics(LoadComics event, Emitter<ComicListState> emit) async {
+    emit(ComicListLoading());
+    try {
+      final comics = await comicRepository.fetchComics();
+      emit(ComicListLoaded(comics: comics));
+    } catch (e) {
+      print("Error loading comics: $e");
+      emit(ComicListError());
     }
   }
 }
