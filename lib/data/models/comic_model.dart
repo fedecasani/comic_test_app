@@ -1,38 +1,15 @@
-import 'package:hive/hive.dart';
 import 'package:html/parser.dart' as html_parser;
 
-part 'comic_model.g.dart';
-
-@HiveType(typeId: 0)
 class Comic {
-  @HiveField(0)
   final String name;
-
-  @HiveField(1)
   final String imageUrl;
-
-  @HiveField(2)
   final String issueNumber;
-
-  @HiveField(3)
   final String dateAdded;
-
-  @HiveField(4)
   final String description;
-
-  @HiveField(5)
   final List<String> creators;
-
-  @HiveField(6)
   final List<String> characters;
-
-  @HiveField(7)
   final List<String> teams;
-
-  @HiveField(8)
   final List<String> locations;
-
-  @HiveField(9)
   final List<String> concepts;
 
   Comic({
@@ -49,6 +26,7 @@ class Comic {
   });
 
   factory Comic.fromJson(Map<String, dynamic> json) {
+    // Limpia la descripción HTML
     String cleanDescription = json['description'] ?? 'No Description';
     cleanDescription = html_parser.parse(cleanDescription).body!.text;
 

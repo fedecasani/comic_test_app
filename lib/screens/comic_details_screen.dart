@@ -14,7 +14,7 @@ class ComicDetailsScreen extends StatelessWidget {
         elevation: 4.0,
         title: Text(
           '${comic.name} #${comic.issueNumber}',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 22.0,
             fontWeight: FontWeight.bold,
           ),
@@ -27,18 +27,7 @@ class ComicDetailsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Image.network(
-                  comic.imageUrl,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Image.asset(
-                      'assets/images/no_connection.png',
-                      fit: BoxFit.cover,
-                    );
-                  },
-                  fit: BoxFit.cover,
-                ),
-              ),
+              Image.network(comic.imageUrl),
               const SizedBox(height: 16),
               Text(
                 comic.name,
@@ -59,7 +48,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Description: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -67,7 +56,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.description,
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
@@ -81,7 +70,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Creators: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -89,7 +78,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.creators.join(', '),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
@@ -103,7 +92,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Characters: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -111,7 +100,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.characters.join(', '),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
@@ -125,7 +114,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Teams: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -133,7 +122,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.teams.join(', '),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
@@ -147,7 +136,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Locations: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -155,7 +144,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.locations.join(', '),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
@@ -169,7 +158,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: 'Concepts: ',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.blue[900],
+                        color: Colors.blue[900], // Color para la etiqueta
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -177,7 +166,7 @@ class ComicDetailsScreen extends StatelessWidget {
                       text: comic.concepts.join(', '),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Colors.black,
+                        color: Colors.black, // Color para el contenido
                       ),
                     ),
                   ],
