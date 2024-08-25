@@ -1,26 +1,27 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import '../data/models/comic_model.dart';
-import '../screens/comic_details_screen.dart'; // Importa la pantalla de detalles
+import '../screens/comic_details_screen.dart';
 
 class ComicCarouselCard extends StatelessWidget {
   final List<Comic> comics;
 
   const ComicCarouselCard({super.key, required this.comics});
-
+//testertesting
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250.0, // Altura del carrusel
+      height: 250.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: comics.length,
         itemBuilder: (context, index) {
           final comic = comics[index];
           return Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 4.0), // Espacio reducido entre tarjetas
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
             child: Container(
-              width: 160.0, // Ancho fijo para todas las tarjetas
+              width: 160.0,
               child: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -31,24 +32,24 @@ class ComicCarouselCard extends StatelessWidget {
                   );
                 },
                 child: Card(
-                  elevation: 5.0, // Sombra de la tarjeta
+                  elevation: 5.0,
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Bordes redondeados
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Imagen
                       ClipRRect(
-                        borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(
-                                12.0)), // Bordes redondeados en la parte superior
+                        borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(12.0)),
                         child: Image.network(
                           comic.imageUrl,
                           fit: BoxFit.cover,
-                          height: 150.0, // Altura fija para la imagen
-                          width: 160.0, // Ancho fijo para la imagen
+                          height: 150.0,
+                          width: 160.0,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Icon(Icons.error);
+                          },
                         ),
                       ),
                       Padding(
@@ -56,7 +57,6 @@ class ComicCarouselCard extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Título
                             Text(
                               '${comic.name} #${comic.issueNumber}',
                               style: Theme.of(context)
@@ -66,10 +66,8 @@ class ComicCarouselCard extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0,
                                   ),
-                              overflow: TextOverflow
-                                  .ellipsis, // Trunca el texto si es muy largo
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            // Fecha
                             Text(
                               'Released: ${comic.dateAdded}',
                               style: Theme.of(context)

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/models/comic_model.dart';
-import '../screens/comic_details_screen.dart'; // Importa la pantalla de detalles
+import '../screens/comic_details_screen.dart';
 
 class ComicCard extends StatelessWidget {
   final Comic comic;
@@ -12,9 +12,7 @@ class ComicCard extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(8.0),
       child: InkWell(
-        // Usa InkWell para que el Card sea tocable
         onTap: () {
-          // Navega a ComicDetailsScreen al hacer clic
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -22,10 +20,43 @@ class ComicCard extends StatelessWidget {
             ),
           );
         },
-        child: ListTile(
-          leading: Image.network(comic.imageUrl),
-          title: Text('${comic.name} #${comic.issueNumber}'),
-          subtitle: Text('Released: ${comic.dateAdded}'),
+        child: Row(
+          children: [
+            SizedBox(
+                height: 50,
+                width: 80,
+                child: Image.network(
+                  comic.imageUrl,
+                  fit: BoxFit.cover,
+                  height: 150.0,
+                  width: 160.0,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.error);
+                  },
+                  loadingBuilder: (context, child, progress) {
+                    if (progress == null) {
+                      return child;
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                )),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${comic.name} #${comic.issueNumber}',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text('Released: ${comic.dateAdded}'),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

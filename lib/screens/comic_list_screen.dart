@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/comic_list_bloc.dart';
@@ -13,7 +15,7 @@ class ComicListScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         elevation: 4.0,
-        title: Text(
+        title: const Text(
           'Comics List',
           style: TextStyle(
             fontSize: 22.0,
@@ -23,10 +25,8 @@ class ComicListScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Aquí puedes agregar la acción para el botón de búsqueda
-            },
+            icon: const Icon(Icons.search),
+            onPressed: () {},
           ),
         ],
       ),
@@ -37,32 +37,54 @@ class ComicListScreen extends StatelessWidget {
           } else if (state is ComicListLoaded) {
             final comics = state.comics;
 
-            return Column(
-              children: [
-                SizedBox(height: 16.0), // Espacio antes del carrusel
-                // Carrusel de cómics
-                ComicCarouselCard(comics: comics),
-                SizedBox(height: 16.0), // Espacio entre el carrusel y la lista
-                // Lista de cómics
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: comics.length,
-                    itemBuilder: (context, index) {
-                      final comic = comics[index];
-                      return ComicCard(comic: comic);
-                    },
+            return RefreshIndicator(
+              onRefresh: () async {
+                return Future.delayed(const Duration(seconds: 2));
+              },
+              child: Column(
+                children: [
+                  const SizedBox(height: 16.0),
+                  ComicCarouselCard(comics: comics),
+                  const SizedBox(height: 16.0),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: comics.length,
+                      itemBuilder: (context, index) {
+                        final comic = comics[index];
+                        return ComicCard(comic: comic);
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           } else if (state is ComicListError) {
-            return const Center(child: Text('Failed to load comics'));
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/no_connection.png',
+                    height: 200.0,
+                    width: 200.0,
+                  ),
+                  const SizedBox(height: 16.0),
+                  const Text(
+                    'Failed to load comics. Please check your connection.',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            );
           }
-          return Container(); // Devolver un widget vacío si el estado no coincide
+          return Container();
         },
       ),
       bottomNavigationBar: Container(
-        height: 80.0, // Ajusta la altura según sea necesario
+        height: 80.0,
         child: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -83,9 +105,7 @@ class ComicListScreen extends StatelessWidget {
             ),
           ],
           currentIndex: 0,
-          onTap: (index) {
-            // No hay acción al seleccionar un ítem
-          },
+          onTap: (index) {},
           selectedItemColor: Colors.blue,
           unselectedItemColor: Colors.blueAccent,
         ),
