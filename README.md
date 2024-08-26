@@ -1,17 +1,54 @@
-# comic_test_app
+# ComicApp
 
-A new Flutter project.
+ComicApp es una aplicación de cómics desarrollada en Flutter que permite explorar y visualizar una lista de cómics, así como obtener detalles específicos sobre cada uno. La aplicación utiliza BLoC para la gestión del estado y Hive para el almacenamiento local.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- **Visualización de Lista de Cómics**: Muestra una lista de cómics con sus detalles básicos.
+- **Detalles del Cómic**: Permite ver información detallada sobre un cómic específico.
+- **Carga y Almacenamiento Local**: Utiliza Hive para almacenar los cómics localmente y manejar el acceso offline.
+- **Navegación**: Utiliza BLoC para la gestión del estado y la navegación entre pantallas.
 
-A few resources to get you started if this is your first Flutter project:
+## Requisitos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK
+- Dart SDK
+- Hive y Hive Flutter
+- Flutter BLoC
+- HTTP
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# comic_test_app
+## Instalación
+
+1. Clona el repositorio:
+
+    ```bash
+    git clone https://github.com/tu_usuario/comicapp.git
+    cd comicapp
+    ```
+
+2. Instala las dependencias:
+
+    ```bash
+    flutter pub get
+    ```
+
+3. Configura Hive:
+
+    Asegúrate de tener el adaptador de Hive registrado en tu proyecto. Esto se hace automáticamente en el archivo `main.dart`.
+
+## Configuración de API
+
+1. Abre el archivo `lib/data/repositories/comic_repository.dart`.
+
+2. Reemplaza `apiKey` con tu propia clave de API de Comic Vine:
+
+    ```dart
+    final String apiKey = "TU_API_KEY_AQUI";
+    ```
+
+## Ejecución
+
+Para ejecutar la aplicación en un emulador o dispositivo físico, usa el siguiente comando:
+
+```bash
+flutter run
