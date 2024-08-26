@@ -35,8 +35,7 @@ class ComicListBloc extends Bloc<ComicListEvent, ComicListState> {
       comics.sort((a, b) => b.dateAdded.compareTo(a.dateAdded));
       emit(ComicListLoaded(comics: comics));
     } catch (e) {
-      print("Error loading comics: $e");
-      emit(ComicListError());
+      emit(const ComicListError());
     }
   }
 }

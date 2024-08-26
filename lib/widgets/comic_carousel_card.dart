@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import '../data/models/comic_model.dart';
 import '../screens/comic_details_screen.dart'; // Importa la pantalla de detalles
@@ -41,7 +43,7 @@ class ComicCarouselCard extends StatelessWidget {
                     children: [
                       // Imagen
                       ClipRRect(
-                        borderRadius: BorderRadius.vertical(
+                        borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(
                                 12.0)), // Bordes redondeados en la parte superior
                         child: Image.network(

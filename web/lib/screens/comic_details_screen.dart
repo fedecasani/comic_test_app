@@ -14,7 +14,7 @@ class ComicDetailsScreen extends StatelessWidget {
         elevation: 4.0,
         title: Text(
           '${comic.name} #${comic.issueNumber}',
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 22.0,
             fontWeight: FontWeight.bold,
           ),

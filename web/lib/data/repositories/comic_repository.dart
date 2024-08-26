@@ -43,18 +43,16 @@ class ComicRepository {
         throw Exception("Failed to load comics: ${response.statusCode}");
       }
     } catch (e) {
-      print("Exception caught: $e");
-
       // Recuperar los cómics desde Hive en caso de error
       final List<Comic> comics = [];
       for (var i = 0; i < box.length; i++) {
-        final comic = box.get('comic_$i') as Comic?;
+        final comic = box.get('comic_$i');
         if (comic != null) {
           comics.add(comic);
         }
       }
 
-      if (comics != null && comics.isNotEmpty) {
+      if (comics.isNotEmpty) {
         return comics;
       } else {
         throw Exception("Failed to fetch comics and no offline data available");

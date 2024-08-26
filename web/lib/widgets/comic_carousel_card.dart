@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import '../data/models/comic_model.dart';
 import '../screens/comic_details_screen.dart'; // Importa la pantalla de detalles
@@ -38,15 +40,15 @@ class ComicCarouselCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(12.0)),
                         child: Image.network(
                           comic.imageUrl,
                           fit: BoxFit.cover,
                           height: 150.0,
                           width: 160.0,
                           errorBuilder: (context, error, stackTrace) {
-                            return Icon(Icons
+                            return const Icon(Icons
                                 .error); // Mostrar un icono de error si la imagen no se carga
                           },
                         ),

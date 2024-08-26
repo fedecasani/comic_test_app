@@ -13,7 +13,7 @@ class ComicListScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         elevation: 4.0,
-        title: Text(
+        title: const Text(
           'Comics List',
           style: TextStyle(
             fontSize: 22.0,
@@ -23,7 +23,7 @@ class ComicListScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {
               // Aquí puedes agregar la acción para el botón de búsqueda
             },
@@ -39,10 +39,11 @@ class ComicListScreen extends StatelessWidget {
 
             return Column(
               children: [
-                SizedBox(height: 16.0), // Espacio antes del carrusel
+                const SizedBox(height: 16.0), // Espacio antes del carrusel
                 // Carrusel de cómics
                 ComicCarouselCard(comics: comics),
-                SizedBox(height: 16.0), // Espacio entre el carrusel y la lista
+                const SizedBox(
+                    height: 16.0), // Espacio entre el carrusel y la lista
                 // Lista de cómics
                 Expanded(
                   child: ListView.builder(
@@ -61,6 +62,7 @@ class ComicListScreen extends StatelessWidget {
           return Container(); // Devolver un widget vacío si el estado no coincide
         },
       ),
+      // ignore: sized_box_for_whitespace
       bottomNavigationBar: Container(
         height: 80.0, // Ajusta la altura según sea necesario
         child: BottomNavigationBar(

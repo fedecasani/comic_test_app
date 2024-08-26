@@ -31,13 +31,13 @@ class ComicCard extends StatelessWidget {
                   height: 150.0,
                   width: 160.0,
                   errorBuilder: (context, error, stackTrace) {
-                    return Icon(Icons.error);
+                    return const Icon(Icons.error);
                   },
                   loadingBuilder: (context, child, progress) {
                     if (progress == null) {
                       return child;
                     } else {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
                   },
                 )),
@@ -49,7 +49,7 @@ class ComicCard extends StatelessWidget {
                   children: [
                     Text(
                       '${comic.name} #${comic.issueNumber}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text('Released: ${comic.dateAdded}'),
                   ],

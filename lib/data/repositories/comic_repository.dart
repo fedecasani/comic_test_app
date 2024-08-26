@@ -22,13 +22,11 @@ class ComicRepository {
         final Map<String, dynamic> responseData = json.decode(response.body);
 
         // Imprimir toda la respuesta para inspeccionar los datos
-        print("Full API response: ${responseData}");
 
         if (responseData.containsKey('results')) {
           final List comicsJson = responseData['results'];
 
           // Imprimir los datos de los comics
-          print("Comics JSON List: ${comicsJson}");
 
           return comicsJson.map((json) => Comic.fromJson(json)).toList();
         } else {
@@ -36,12 +34,9 @@ class ComicRepository {
               "Unexpected response format: 'results' key not found");
         }
       } else {
-        print("Error: ${response.statusCode}");
-        print("Response body: ${response.body}");
         throw Exception("Failed to load comics");
       }
     } catch (e) {
-      print("Exception caught: $e");
       throw Exception("Failed to fetch comics due to an error");
     }
   }

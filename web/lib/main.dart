@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore: unnecessary_import
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'blocs/comic_list_bloc.dart';
@@ -17,6 +18,7 @@ void main() async {
     }
     await Hive.openBox<Comic>('comicsBox');
   } catch (e) {
+    // ignore: avoid_print
     print('Error initializing Hive: $e');
   }
 
